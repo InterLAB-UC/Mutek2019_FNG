@@ -1,8 +1,9 @@
+//Dar clic con el mouse para agregar disparadores que dibujen lineas.
 import processing.video.*;
 
 //Arreglo de Disparadores
 ArrayList<Trigger_line> triggers = new ArrayList<Trigger_line>();
-int limite = 15; //Límite de disparadores
+int limite = 50; //Límite de disparadores
 boolean flag_inc = true;
 boolean flag_dec = false;
 
@@ -10,7 +11,7 @@ boolean flag_dec = false;
 Capture video;
 
 void setup() {  
-  size(320, 240);  
+  size(640, 480);  
   background(255);  
   //Inicia el proceso de captura de video
   video = new Capture(this, width, height);  
@@ -47,7 +48,7 @@ void mouseReleased() {
   
   if (flag_inc == true)
   {
-    triggers.add(new Trigger_line(width/2, height/2));
+    triggers.add(new Trigger_line(random(width), random(height)));
     if (triggers.size() == limite)
     {
       flag_inc = false;
